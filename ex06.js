@@ -20,7 +20,26 @@ Note: There may be multiple available spots for a particular vehicle. It does no
 */
 
 const whereCanIPark = function (spots, vehicle) {
-  // Code here!
+  const parkingRules = {
+    regular: ["R"],
+    small: ["R", "S"],
+    motorcycle: ["R", "S", "M"],
+  };
+
+  const availableSpots = parkingRules[vehicle];
+
+  for (let y = 0; y < spots.length; y++) {
+    for (let x = 0; x < spots[y].length; x++) {
+      const spot = spots[y][x];
+
+      // Cthis one im gonna checkif the spot is available in (uppercase) and matches vehicle rules
+      if (availableSpots.includes(spot) && spot === spot.toUpperCase()) {
+        return [y, x]; // Return the coordinates as [Y, X]
+      }
+    }
+  }
+
+  return false;
 };
 
 console.log(
