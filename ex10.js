@@ -8,7 +8,18 @@ Create a function named multiplicationTable that receives a number maxValue as i
 */
 
 const multiplicationTable = function (maxValue) {
-  // Your code here
+  let table = ""; //  an empty string to store the table
+
+  // this is gonna looop through each number from 1 to maxVal
+  for (let i = 1; i <= maxValue; i++) {
+    // Lthis is also gonna loop through each number again to create a new one
+    for (let j = 1; j <= maxValue; j++) {
+      table += i * j + " "; // Multiply and add to the new wachstring
+    }
+    table += "\n"; // imma adda newline at the end of each one
+  }
+
+  return table.trim();
 };
 
 console.log(multiplicationTable(1));
